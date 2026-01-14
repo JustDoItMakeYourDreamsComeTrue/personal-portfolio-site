@@ -1,10 +1,14 @@
 import { motion } from 'motion/react';
 import { ChevronDown } from 'lucide-react';
+import { useCallback } from 'react';
 
 export function Hero() {
-  const scrollToSection = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-  };
+  const scrollToSection = useCallback((id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }, []);
 
   return (
     <section className="min-h-screen flex items-center justify-center relative px-6">
@@ -53,6 +57,7 @@ export function Hero() {
             className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-full text-white font-semibold relative overflow-hidden group"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            aria-label="Перейти к разделу контактов"
           >
             <span className="relative z-10">Связаться со мной</span>
             <motion.div
@@ -68,6 +73,7 @@ export function Hero() {
             className="px-8 py-4 border-2 border-cyan-400/50 rounded-full text-cyan-400 font-semibold backdrop-blur-sm hover:bg-cyan-400/10 transition-colors"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            aria-label="Перейти к проектам"
           >
             Мои работы
           </motion.button>
@@ -78,6 +84,10 @@ export function Hero() {
         className="absolute bottom-10 left-1/2 -translate-x-1/2"
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
+        role="button"
+        aria-label="Прокрутить вниз"
+        onClick={() => scrollToSection('about')}
+        style={{ cursor: 'pointer' }}
       >
         <ChevronDown className="w-8 h-8 text-cyan-400" />
       </motion.div>

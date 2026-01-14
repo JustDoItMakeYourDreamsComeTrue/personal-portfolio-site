@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback, useMemo } from 'react';
 import { Menu, X } from 'lucide-react';
 
 export function Navigation() {
@@ -7,15 +7,22 @@ export function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setIsScrolled(window.scrollY > 50);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navItems = [
+  const navItems = useMemo(() => [
     { label: 'Главная', href: '#hero' },
     { label: 'Обо мне', href: '#about' },
     { label: 'Навыки', href: '#skills' },
@@ -23,17 +30,20 @@ export function Navigation() {
     { label: 'Проекты', href: '#projects' },
     { label: 'Хобби', href: '#hobbies' },
     { label: 'Контакты', href: '#contact' },
-  ];
+  ], []);
 
-  const scrollToSection = (href: string) => {
+  const scrollToSection = useCallback((href: string) => {
     const id = href.replace('#', '');
     if (id === 'hero') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
-      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     }
     setIsMobileMenuOpen(false);
-  };
+  }, []);
 
   return (
     <>
@@ -80,6 +90,8 @@ export function Navigation() {
               className="md:hidden text-cyan-400"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               whileTap={{ scale: 0.95 }}
+              aria-label={isMobileMenuOpen ? 'Закрыть меню' : 'Открыть меню'}
+              aria-expanded={isMobileMenuOpen}
             >
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </motion.button>
