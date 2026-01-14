@@ -1,95 +1,109 @@
-import { motion } from 'motion/react';
-import { useInView } from 'motion/react';
-import { useRef } from 'react';
-import { ExternalLink, Github } from 'lucide-react';
+import { motion } from "motion/react";
+import { useInView } from "motion/react";
+import { useRef } from "react";
+import { ExternalLink, Github } from "lucide-react";
 
 export function Projects() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.3 });
+    const ref = useRef(null);
+    const isInView = useInView(ref, { once: true, amount: 0.3 });
 
-  const projects = [
-    {
-      title: 'Корпоративный портал',
-      description: 'Многофункциональная рабочая экосистема для сотрудников компании с системой управления задачами, документами и коммуникацией',
-      technologies: ['React', 'TypeScript', 'Node.js', 'API'],
-      gradient: 'from-cyan-500 to-blue-500',
-    },
-    {
-      title: 'Система страхования',
-      description: 'Веб-приложение с многоуровневой системой обработки данных для оформления и управления страховыми полисами',
-      technologies: ['React', 'JavaScript', 'REST API', 'CSS'],
-      gradient: 'from-purple-500 to-pink-500',
-    },
-    {
-      title: 'Аналитическая панель',
-      description: 'Dashboard для визуализации данных и веб-аналитики с интерактивными графиками и отчетами',
-      technologies: ['React', 'TypeScript', 'Recharts', 'SQL'],
-      gradient: 'from-green-500 to-cyan-500',
-    },
-  ];
+    const projects = [
+        {
+            title: "Корпоративный портал",
+            description:
+                "Многофункциональная рабочая экосистема для сотрудников компании с системой управления задачами, документами и коммуникацией",
+            technologies: ["React", "TypeScript", "Node.js", "API"],
+            gradient: "from-cyan-500 to-blue-500",
+        },
+        {
+            title: "Система страхования",
+            description:
+                "Веб-приложение с многоуровневой системой обработки данных для оформления и управления страховыми полисами",
+            technologies: ["React", "JavaScript", "REST API", "CSS"],
+            gradient: "from-purple-500 to-pink-500",
+        },
+        {
+            title: "Аналитическая панель",
+            description:
+                "Dashboard для визуализации данных и веб-аналитики с интерактивными графиками и отчетами",
+            technologies: ["React", "TypeScript", "Recharts", "SQL"],
+            gradient: "from-green-500 to-cyan-500",
+        },
+    ];
 
-  return (
-    <section id="projects" className="py-20 px-6" ref={ref}>
-      <div className="max-w-6xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-green-400 to-cyan-400 bg-clip-text text-transparent">
-            Проекты
-          </h2>
-          <p className="text-xl text-gray-300">
-            Некоторые из моих работ
-          </p>
-        </motion.div>
+    return (
+        <section id="projects" className="py-20 px-6" ref={ref}>
+            <div className="max-w-6xl mx-auto">
+                <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ duration: 0.8 }}
+                    className="text-center mb-16"
+                >
+                    <h2 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-green-400 to-cyan-400 bg-clip-text text-transparent">
+                        Проекты
+                    </h2>
+                    <p className="text-xl text-gray-300">
+                        Некоторые из моих работ
+                    </p>
+                </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <motion.div
-              key={project.title}
-              initial={{ opacity: 0, y: 50 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              whileHover={{ y: -10 }}
-              className="group relative"
-            >
-              <div className="p-6 rounded-2xl bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm border border-cyan-400/10 hover:border-cyan-400/30 transition-all duration-300 h-full flex flex-col">
-                <div className={`w-full h-2 rounded-full bg-gradient-to-r ${project.gradient} mb-4`} />
-                
-                <h3 className="text-2xl font-semibold text-white mb-3">{project.title}</h3>
-                <p className="text-gray-400 mb-4 flex-1">{project.description}</p>
-                
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.technologies.map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-3 py-1 text-sm bg-slate-700/50 text-cyan-400 rounded-full border border-cyan-400/20"
-                    >
-                      {tech}
-                    </span>
-                  ))}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {projects.map((project, index) => (
+                        <motion.div
+                            key={project.title}
+                            initial={{ opacity: 0, y: 50 }}
+                            animate={isInView ? { opacity: 1, y: 0 } : {}}
+                            transition={{ duration: 0.6, delay: index * 0.2 }}
+                            whileHover={{ y: -10 }}
+                            className="group relative"
+                        >
+                            <div className="p-6 rounded-2xl bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm border border-cyan-400/10 hover:border-cyan-400/30 transition-all duration-300 h-full flex flex-col">
+                                <div
+                                    className={`w-full h-2 rounded-full bg-gradient-to-r ${project.gradient} mb-4`}
+                                />
+
+                                <h3 className="text-2xl font-semibold text-white mb-3">
+                                    {project.title}
+                                </h3>
+                                <p className="text-gray-400 mb-4 flex-1">
+                                    {project.description}
+                                </p>
+
+                                <div className="flex flex-wrap gap-2 mb-4">
+                                    {project.technologies.map((tech) => (
+                                        <span
+                                            key={tech}
+                                            className="px-3 py-1 text-sm bg-slate-700/50 text-cyan-400 rounded-full border border-cyan-400/20"
+                                        >
+                                            {tech}
+                                        </span>
+                                    ))}
+                                </div>
+
+                                <div className="flex gap-3">
+                                    <motion.button
+                                        whileHover={{ scale: 1.05 }}
+                                        whileTap={{ scale: 0.95 }}
+                                        className="flex-1 px-4 py-2 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-lg text-white font-medium flex items-center justify-center gap-2 relative overflow-hidden group hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                                    >
+                                        <span className="relative z-10 flex items-center gap-2">
+                                            <ExternalLink className="w-4 h-4" />
+                                            Подробнее
+                                        </span>
+                                        <span className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-gradient-to-r from-purple-500 to-pink-500 transition-opacity duration-300 rounded-lg" />
+                                    </motion.button>
+                                </div>
+                            </div>
+
+                            {/* Glow effect */}
+                            <div
+                                className={`absolute inset-0 rounded-2xl bg-gradient-to-r ${project.gradient} opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300 -z-10`}
+                            />
+                        </motion.div>
+                    ))}
                 </div>
-
-                <div className="flex gap-3">
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="flex-1 px-4 py-2 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-lg text-white font-medium flex items-center justify-center gap-2 hover:shadow-lg hover:shadow-cyan-500/50 transition-shadow"
-                  >
-                    <ExternalLink className="w-4 h-4" />
-                    Подробнее
-                  </motion.button>
-                </div>
-              </div>
-
-              {/* Glow effect */}
-              <div className={`absolute inset-0 rounded-2xl bg-gradient-to-r ${project.gradient} opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300 -z-10`} />
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
+            </div>
+        </section>
+    );
 }
