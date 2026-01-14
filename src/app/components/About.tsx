@@ -1,0 +1,91 @@
+import { motion } from 'motion/react';
+import { useInView } from 'motion/react';
+import { useRef } from 'react';
+import { Code2, Rocket, Users, Award } from 'lucide-react';
+
+export function About() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.3 });
+
+  const features = [
+    {
+      icon: Code2,
+      title: 'Чистый код',
+      description: 'Пишу понятный, масштабируемый и поддерживаемый код',
+    },
+    {
+      icon: Rocket,
+      title: 'Современные технологии',
+      description: 'Использую актуальный стек технологий и лучшие практики',
+    },
+    {
+      icon: Users,
+      title: 'Командная работа',
+      description: 'Опыт работы в agile-командах и коммерческих проектах',
+    },
+    {
+      icon: Award,
+      title: 'Качество',
+      description: 'Внимание к деталям и стремление к совершенству',
+    },
+  ];
+
+  return (
+    <section id="about" className="min-h-screen py-20 px-6" ref={ref}>
+      <div className="max-w-6xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+            Обо мне
+          </h2>
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            Привет! Я — frontend-разработчик с опытом создания сложных веб-приложений. 
+            Специализируюсь на разработке современных интерфейсов с использованием React, TypeScript и других передовых технологий.
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+          {features.map((feature, index) => (
+            <motion.div
+              key={feature.title}
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              whileHover={{ y: -5, scale: 1.02 }}
+              className="p-6 rounded-2xl bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm border border-cyan-400/10 hover:border-cyan-400/30 transition-all duration-300"
+            >
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500 to-purple-500 flex items-center justify-center mb-4">
+                <feature.icon className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-2">{feature.title}</h3>
+              <p className="text-gray-400">{feature.description}</p>
+            </motion.div>
+          ))}
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="p-8 rounded-3xl bg-gradient-to-br from-slate-800/30 to-slate-900/30 backdrop-blur-sm border border-purple-400/20"
+        >
+          <h3 className="text-2xl font-semibold text-white mb-4">Мой путь в разработке</h3>
+          <p className="text-gray-300 mb-4">
+            Закончил Белорусский государственный технологический университет по специальности 
+            "Программное обеспечение и безопасность мобильных систем" в 2025 году. За время учебы 
+            глубоко погрузился в мир веб-разработки и нашел свое призвание в создании пользовательских интерфейсов.
+          </p>
+          <p className="text-gray-300">
+            Имею опыт коммерческой разработки в различных компаниях, где участвовал в создании 
+            корпоративных порталов и систем страхования. Постоянно изучаю новые технологии и подходы, 
+            чтобы создавать лучшие продукты.
+          </p>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
