@@ -137,15 +137,49 @@ export function Contact() {
                         <h3 className="text-2xl font-semibold text-white mb-6">
                             Напишите мне
                         </h3>
-                        <form className="space-y-4">
+                        <form
+                            className="space-y-4"
+                            onSubmit={(e) => {
+                                e.preventDefault();
+                                const form = e.currentTarget;
+                                const name =
+                                    (
+                                        form.elements.namedItem(
+                                            "name"
+                                        ) as HTMLInputElement
+                                    )?.value || "";
+                                const email =
+                                    (
+                                        form.elements.namedItem(
+                                            "email"
+                                        ) as HTMLInputElement
+                                    )?.value || "";
+                                const message =
+                                    (
+                                        form.elements.namedItem(
+                                            "message"
+                                        ) as HTMLTextAreaElement
+                                    )?.value || "";
+                                const mailto =
+                                    `mailto:assistantacc666@gmail.com?subject=${encodeURIComponent(
+                                        "Сообщение с сайта (portfolio)"
+                                    )}` +
+                                    `&body=${encodeURIComponent(
+                                        `Имя: ${name}\nEmail: ${email}\n\n${message}`
+                                    )}`;
+                                window.location.href = mailto;
+                            }}
+                        >
                             <div>
                                 <label className="block text-gray-300 mb-2">
                                     Имя
                                 </label>
                                 <input
                                     type="text"
+                                    name="name"
                                     className="w-full px-4 py-3 rounded-lg bg-slate-700/50 border border-cyan-400/20 text-white focus:border-cyan-400 focus:outline-none transition-colors"
                                     placeholder="Ваше имя"
+                                    required
                                 />
                             </div>
                             <div>
@@ -154,8 +188,10 @@ export function Contact() {
                                 </label>
                                 <input
                                     type="email"
+                                    name="email"
                                     className="w-full px-4 py-3 rounded-lg bg-slate-700/50 border border-cyan-400/20 text-white focus:border-cyan-400 focus:outline-none transition-colors"
                                     placeholder="your@email.com"
+                                    required
                                 />
                             </div>
                             <div>
@@ -164,8 +200,10 @@ export function Contact() {
                                 </label>
                                 <textarea
                                     rows={5}
+                                    name="message"
                                     className="w-full px-4 py-3 rounded-lg bg-slate-700/50 border border-cyan-400/20 text-white focus:border-cyan-400 focus:outline-none transition-colors resize-none"
                                     placeholder="Расскажите о вашем проекте..."
+                                    required
                                 />
                             </div>
                             <motion.button
