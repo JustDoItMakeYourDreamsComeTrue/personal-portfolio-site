@@ -7,8 +7,17 @@ export function Projects() {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, amount: 0.3 });
 
-    // Оставлен только один рабочий проект по требованию пользователя
+    // Добавлен новый проект-новинка (без адаптива, цвет по скриншоту #0A0D23)
     const projects = [
+        {
+            title: "JustDoItMakeYourDreamsComeTrue (Новинка)",
+            description:
+                "Личный сайт-портфолио. Важно: адаптивный дизайн отсутствует. Цветовая схема соответствует оригиналу (тёмно-синий).",
+            technologies: ["HTML", "CSS", "JavaScript"],
+            gradient: "from-[#0A0D23] to-[#181B34]", // тёмно-синий градиент
+            link: "https://justdoitmakeyourdreamscometrue.github.io/",
+            isNew: true,
+        },
         {
             title: "E-commerce Table Games",
             description:
