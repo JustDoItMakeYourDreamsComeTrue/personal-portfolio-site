@@ -29,6 +29,15 @@ export function Projects() {
             technologies: ["React", "TypeScript", "Recharts", "SQL"],
             gradient: "from-green-500 to-cyan-500",
         },
+        {
+            title: "E-commerce Table Games",
+            description:
+                "Современный сайт для продажи настольных игр: каталог, корзина, фильтры, оформление заказа и адаптивный дизайн. Проект реализован с нуля для реального бизнеса, с акцентом на удобство пользователя и визуальную привлекательность.",
+            technologies: ["React", "TypeScript", "Vite", "Tailwind CSS"],
+            gradient: "from-yellow-400 to-orange-500",
+            link: "https://justdoitmakeyourdreamscometrue.github.io/e-commerce-table-games-site/",
+            isNew: true,
+        },
     ];
 
     return (
@@ -68,9 +77,14 @@ export function Projects() {
                                     className={`w-full h-2 rounded-full bg-gradient-to-r ${project.gradient} mb-4`}
                                 />
 
-                                <h3 className="text-2xl font-semibold text-white mb-3">
-                                    {project.title}
-                                </h3>
+                                <div className="flex items-center mb-3 gap-2">
+                                    <h3 className="text-2xl font-semibold text-white">
+                                        {project.title}
+                                    </h3>
+                                    {project.isNew && (
+                                        <span className="ml-2 px-2 py-0.5 text-xs font-bold bg-yellow-400 text-slate-900 rounded-full animate-pulse">New!</span>
+                                    )}
+                                </div>
                                 <p className="text-gray-400 mb-4 flex-1">
                                     {project.description}
                                 </p>
@@ -87,17 +101,34 @@ export function Projects() {
                                 </div>
 
                                 <div className="flex gap-3">
-                                    <motion.button
-                                        whileHover={{ scale: 1.05 }}
-                                        whileTap={{ scale: 0.95 }}
-                                        className="flex-1 px-4 py-2 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-lg text-white font-medium flex items-center justify-center gap-2 relative overflow-hidden group hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-cyan-400"
-                                    >
-                                        <span className="relative z-10 flex items-center gap-2">
-                                            <ExternalLink className="w-4 h-4" />
-                                            Подробнее
-                                        </span>
-                                        <span className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-gradient-to-r from-purple-500 to-pink-500 transition-opacity duration-300 rounded-lg" />
-                                    </motion.button>
+                                    {project.link ? (
+                                        <motion.a
+                                            href={project.link}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            whileHover={{ scale: 1.05 }}
+                                            whileTap={{ scale: 0.95 }}
+                                            className="flex-1 px-4 py-2 bg-gradient-to-r from-cyan-500 to-orange-500 rounded-lg text-white font-medium flex items-center justify-center gap-2 relative overflow-hidden group hover:shadow-lg hover:shadow-yellow-400/40 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+                                        >
+                                            <span className="relative z-10 flex items-center gap-2">
+                                                <ExternalLink className="w-4 h-4" />
+                                                Подробнее
+                                            </span>
+                                            <span className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-gradient-to-r from-yellow-400 to-orange-500 transition-opacity duration-300 rounded-lg" />
+                                        </motion.a>
+                                    ) : (
+                                        <motion.button
+                                            whileHover={{ scale: 1.05 }}
+                                            whileTap={{ scale: 0.95 }}
+                                            className="flex-1 px-4 py-2 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-lg text-white font-medium flex items-center justify-center gap-2 relative overflow-hidden group hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                                        >
+                                            <span className="relative z-10 flex items-center gap-2">
+                                                <ExternalLink className="w-4 h-4" />
+                                                Подробнее
+                                            </span>
+                                            <span className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-gradient-to-r from-purple-500 to-pink-500 transition-opacity duration-300 rounded-lg" />
+                                        </motion.button>
+                                    )}
                                 </div>
                             </div>
 
