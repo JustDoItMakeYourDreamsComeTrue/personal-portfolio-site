@@ -7,28 +7,8 @@ export function Projects() {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, amount: 0.3 });
 
+    // Оставлен только один рабочий проект по требованию пользователя
     const projects = [
-        {
-            title: "Корпоративный портал",
-            description:
-                "Многофункциональная рабочая экосистема для сотрудников компании с системой управления задачами, документами и коммуникацией",
-            technologies: ["React", "TypeScript", "Node.js", "API"],
-            gradient: "from-cyan-500 to-blue-500",
-        },
-        {
-            title: "Система страхования",
-            description:
-                "Веб-приложение с многоуровневой системой обработки данных для оформления и управления страховыми полисами",
-            technologies: ["React", "JavaScript", "REST API", "CSS"],
-            gradient: "from-purple-500 to-pink-500",
-        },
-        {
-            title: "Аналитическая панель",
-            description:
-                "Dashboard для визуализации данных и веб-аналитики с интерактивными графиками и отчетами",
-            technologies: ["React", "TypeScript", "Recharts", "SQL"],
-            gradient: "from-green-500 to-cyan-500",
-        },
         {
             title: "E-commerce Table Games",
             description:
