@@ -10,12 +10,12 @@ export function Projects() {
     // Добавлен новый проект-новинка (без адаптива, цвет по скриншоту #0A0D23)
     const projects = [
         {
-            title: "JustDoItMakeYourDreamsComeTrue (Новинка)",
+            title: "Online Games Site (Новинка)",
             description:
-                "Личный сайт-портфолио. Важно: адаптивный дизайн отсутствует. Цветовая схема соответствует оригиналу (тёмно-синий).",
-            technologies: ["HTML", "CSS", "JavaScript"],
+                "Современный сайт с коллекцией онлайн-игр: Flappy, Match-3, Poker, Pong, Quiz, Snake, Tetris и другие. Реализованы лидерборды, мультиязычность, плавные анимации и управление состоянием. Важно: адаптивный дизайн отсутствует. Цветовая схема — тёмно-синий, как на оригинальном сайте.",
+            technologies: ["React", "TypeScript", "Vite", "Zustand", "i18next", "Framer Motion"],
             gradient: "from-[#0A0D23] to-[#181B34]", // тёмно-синий градиент
-            link: "https://justdoitmakeyourdreamscometrue.github.io/",
+            link: "https://justdoitmakeyourdreamscometrue.github.io/online-games-site/",
             isNew: true,
         },
         {
