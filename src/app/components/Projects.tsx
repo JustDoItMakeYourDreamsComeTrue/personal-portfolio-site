@@ -82,7 +82,9 @@ export function Projects() {
                                         {project.title}
                                     </h3>
                                     {project.isNew && (
-                                        <span className="ml-2 px-2 py-0.5 text-xs font-bold bg-yellow-400 text-slate-900 rounded-full animate-pulse">New!</span>
+                                        <span className="ml-2 px-2 py-0.5 text-xs font-bold bg-yellow-400 text-slate-900 rounded-full animate-pulse">
+                                            New!
+                                        </span>
                                     )}
                                 </div>
                                 <p className="text-gray-400 mb-4 flex-1">
