@@ -16,7 +16,7 @@ export function Projects() {
             technologies: ["React", "TypeScript", "Vite", "Tailwind CSS"],
             gradient: "from-yellow-400 to-orange-500",
             link: "https://justdoitmakeyourdreamscometrue.github.io/e-commerce-table-games-site/",
-            isNew: true,
+            isNew: false,
         },
     ];
 
