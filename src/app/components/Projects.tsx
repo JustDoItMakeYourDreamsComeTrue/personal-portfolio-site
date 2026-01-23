@@ -7,7 +7,6 @@ export function Projects() {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, amount: 0.3 });
 
-    // Добавлен новый проект-новинка (без адаптива, цвет по скриншоту #0A0D23)
     const projects = [
         {
             title: "Food Recipes Site",
@@ -19,9 +18,9 @@ export function Projects() {
                 "Vite",
                 "Zustand",
                 "Custom DB",
-                "Framer Motion"
+                "Framer Motion",
             ],
-            gradient: "from-orange-400 to-green-500", // аппетитный градиент
+            gradient: "from-orange-400 to-green-500",
             link: "https://justdoitmakeyourdreamscometrue.github.io/food-recipes-site/",
             isNew: true,
         },
@@ -37,7 +36,7 @@ export function Projects() {
                 "i18next",
                 "Framer Motion",
             ],
-            gradient: "from-[#0A0D23] to-[#181B34]", // тёмно-синий градиент
+            gradient: "from-[#0A0D23] to-[#181B34]",
             link: "https://justdoitmakeyourdreamscometrue.github.io/online-games-site/",
             isNew: true,
         },
