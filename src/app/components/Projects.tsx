@@ -10,6 +10,22 @@ export function Projects() {
     // Добавлен новый проект-новинка (без адаптива, цвет по скриншоту #0A0D23)
     const projects = [
         {
+            title: "Food Recipes Site",
+            description:
+                "Платформа для поиска, создания и модерации кулинарных рецептов. Есть авторизация, профили пользователей, добавление и редактирование рецептов, роли (админ, модератор), тёмная тема, кастомная база данных. Современный стек и яркий дизайн. Адаптивность отсутствует.",
+            technologies: [
+                "React",
+                "TypeScript",
+                "Vite",
+                "Zustand",
+                "Custom DB",
+                "Framer Motion"
+            ],
+            gradient: "from-orange-400 to-green-500", // аппетитный градиент
+            link: "https://justdoitmakeyourdreamscometrue.github.io/food-recipes-site/",
+            isNew: true,
+        },
+        {
             title: "Online Games Site",
             description:
                 "Современный сайт с коллекцией онлайн-игр: Flappy, Match-3, Poker, Pong, Quiz, Snake, Tetris и другие. Реализованы лидерборды, мультиязычность, плавные анимации и управление состоянием. Важно: адаптивный дизайн отсутствует. Цветовая схема — тёмно-синий, как на оригинальном сайте.",
