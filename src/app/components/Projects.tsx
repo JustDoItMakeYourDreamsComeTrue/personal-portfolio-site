@@ -49,6 +49,15 @@ export function Projects() {
             link: "https://justdoitmakeyourdreamscometrue.github.io/e-commerce-table-games-site/",
             isNew: false,
         },
+        {
+            title: "Contacts Site",
+            description:
+                "Минималистичная книга контактов с группировкой, локальным хранением данных и базовыми UI-компонентами. Этот проект выполнен на самом простом стеке среди моих работ: без React и сложной архитектуры, с фокусом на чистую логику и практичность.",
+            technologies: ["TypeScript", "Vite", "SCSS", "Vitest"],
+            gradient: "from-sky-500 to-indigo-600",
+            link: "https://justdoitmakeyourdreamscometrue.github.io/contacts-site/",
+            isNew: false,
+        },
     ];
 
     return (
